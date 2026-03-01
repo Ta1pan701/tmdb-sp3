@@ -1,0 +1,142 @@
+.app {
+    background-color: #1E2538;
+}
+
+.upper-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 35px;
+
+    .h1 {
+        color: white;
+        font-weight: 800;
+        font-size: 45px;
+    }
+
+    .right-box {
+        display: flex;
+        align-items: center;
+        gap: 40px;
+    }
+
+    .link {
+        color: white;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 18px;
+    }
+
+    .links {
+        color: #999999;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 18px;
+    }
+}
+
+.down-box {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+}
+
+.left-box {
+    display: flex;
+    align-items: center;
+    gap: 25px;
+}
+
+.left {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    height: 665px;
+    background-color: #181E2E;
+    border-radius: 10px;
+    width: 461px;
+    color: white;
+    padding: 10px;
+
+    .parag {
+        color: yellow;
+        font-weight: 600;
+        font-size: 14px;
+    }
+
+    .p-2 {
+        color: #999999;
+        font-weight: 700;
+        font-size: 14px;
+    }
+
+    .h4 {
+        font-size: 23px;
+        font-weight: 700;
+
+    }
+
+    .name-p {
+        font-size: 16px;
+        font-weight: 700;
+        color: #999999;
+    }
+
+    .boxik {
+        margin-bottom: 20px;
+        margin-left: 18px;
+    }
+}
+
+.right-boxs {
+    display: flex;
+    flex-direction: column;
+}
+
+.r-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    background-color: #1B2133;
+    width: 462px;
+    height: 162px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+
+    .names {
+        display: flex;
+        flex-direction: column;
+
+        .pars {
+            color: white;
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .parags {
+            color: #2d3d59;
+            font-weight: 700;
+            font-size: 15px;
+        }
+
+    }
+
+    .places {
+        color: orange;
+        font-weight: 700;
+        font-size: 15px;
+    }
+
+    .fourth {
+        color: #00FF7F;
+    }
+
+    .fifth {
+        color: #00BFFF;
+    }
+
+    .sixth {
+        color: #DA70D6;
+    }
+}
