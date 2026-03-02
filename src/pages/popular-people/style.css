@@ -488,3 +488,150 @@ img {
 .swiper-scrollbar-drag {
     background: #3657cb !important;
 }
+
+.footer {
+    background: #0f172a;
+    padding: 60px 20px 50px;
+    text-align: center;
+    color: white;
+    position: relative;
+}
+
+.footer__socials {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    margin-bottom: 35px;
+}
+
+.footer__socials a {
+    width: 35px;
+    height: 35px;
+    border-radius: 50%;
+    background: #1e293b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.footer__socials a:hover {
+    background: #4f7cff;
+}
+
+.footer__menu {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin-bottom: 35px;
+}
+
+.footer__menu a {
+    text-decoration: none;
+    color: white;
+    font-weight: 500;
+}
+
+.footer__copyright {
+    color: #94a3b8;
+    margin-bottom: 15px;
+    font-size: 14px;
+}
+
+.footer__links a {
+    color: #94a3b8;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 14px;
+}
+
+.footer__links a:hover {
+    color: white;
+}
+.newsletter {
+    max-width: 1430px;
+    margin: 80px auto;
+    border-radius: 20px;
+    overflow: hidden;
+    background: url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba") center/cover no-repeat;
+}
+
+.newsletter__overlay {
+    background: linear-gradient(135deg, #2e4adee6, #1e2a78f2);
+    padding: 80px 20px;
+    text-align: center;
+    color: white;
+}
+
+.newsletter__box {
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+.newsletter__logo {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.newsletter__logo span {
+    color: #4f7cff;
+}
+
+.newsletter h2 {
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.newsletter p {
+    color: #d1d5db;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.newsletter__form {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.newsletter__form input {
+    width: 400px;
+    padding: 16px;
+    border-radius: 10px;
+    border: none;
+    font-size: 14px;
+}
+
+.newsletter__form button {
+    padding: 16px 35px;
+    border-radius: 10px;
+    border: none;
+    background: #f2f200;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.newsletter__form button:hover {
+    opacity: 0.85;
+}
+
+.newsletter__agree {
+    font-size: 14px;
+    color: #cbd5e1;
+}
+
+.newsletter__agree input {
+    margin-right: 8px;
+}
+
+.newsletter__agree a {
+    color: #f2f200;
+    text-decoration: none;
+}
