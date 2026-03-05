@@ -1,14 +1,14 @@
 .app {
     background-color: #1E2538;
 }
-body{
+
+body {
     padding-top: 30px;
 }
 
-.upper-box {
+.popular-upper-box {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     margin-bottom: 35px;
 
     .h1 {
@@ -17,7 +17,7 @@ body{
         font-size: 45px;
     }
 
-    .right-boxi {
+    .link-right-box {
         display: flex;
         align-items: center;
         gap: 40px;
@@ -38,33 +38,40 @@ body{
     }
 }
 
-.down-box {
+.popular-people-box {
     display: flex;
     align-items: center;
     gap: 11px;
 }
 
-.left-box {
+.pop-people-left-box {
     display: flex;
     align-items: center;
     gap: 15px;
 }
 
-.left {
+.popular-people-img {
+    max-width: 500px;
+    height: 550px;
+    border-radius: 10px;
+    object-fit: cover;
+}
+
+.pop-left {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     height: 665px;
-    background-color: #181E2E;
     border-radius: 10px;
     width: 461px;
     color: white;
-    padding: 10px;
+    padding: 0 10px 0 10px;
 
-    .parag {
+    .pop-place {
         color: yellow;
         font-weight: 600;
         font-size: 14px;
+        margin-bottom: 10px;
     }
 
     .p-2 {
@@ -79,24 +86,24 @@ body{
 
     }
 
-    .name-p {
+    .pop-name-p {
         font-size: 16px;
         font-weight: 700;
         color: #999999;
     }
 
-    .boxik {
+    .pop-name-box {
         margin-bottom: 20px;
-        margin-left: 18px;
+        margin-top: 10px;
     }
 }
 
-.right-boxs {
+.pop-people-right-box {
     display: flex;
     flex-direction: column;
 }
 
-.r-box {
+.pop-r-box {
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -107,17 +114,17 @@ body{
     margin-bottom: 5px;
     border-radius: 10px;
 
-    .names {
+    .pop-names-box {
         display: flex;
         flex-direction: column;
 
-        .pars {
+        .pop-name {
             color: white;
             font-size: 20px;
             font-weight: 700;
         }
 
-        .parags {
+        .pop-fullname {
             color: #2d3d59;
             font-weight: 700;
             font-size: 15px;
@@ -125,7 +132,14 @@ body{
 
     }
 
-    .places {
+    .popular-people-img-right {
+        width: 100px;
+        height: 120px;
+        border-radius: 10px;
+        object-fit: cover;
+    }
+
+    .pop-places {
         color: orange;
         font-weight: 700;
         font-size: 15px;
@@ -135,14 +149,15 @@ body{
         color: #00FF7F;
     }
 
-    .p-5  {
+    .p-5 {
         color: #00BFFF;
     }
 
-    .p-6  {
+    .p-6 {
         color: #DA70D6;
     }
 }
+
 /* Сброс */
 * {
     margin: 0;
@@ -158,7 +173,7 @@ body {
 
 header {
     width: 100%;
-    /* margin-top: 30px; */
+    margin-bottom: 40px;
     background-color: #1e2638;
 }
 
@@ -300,7 +315,7 @@ header {
 /* ===== MOVIE CARD ===== */
 
 .movie-card {
-    width: 260px;
+    width: 100%;
     font-family: 'Segoe UI', sans-serif;
 }
 
@@ -360,7 +375,6 @@ header {
 .cn-top {
     display: flex;
     justify-content: space-between;
-    align-items: center;
     margin: 30px 0;
 }
 
@@ -384,9 +398,9 @@ header {
 
 .card-box {
     display: grid;
-    gap: 30px;
+    gap: 40px;
     grid-template-columns: repeat(4, 1fr);
-    grid-auto-rows: 500px;
+    grid-auto-rows: 530px;
     flex-wrap: wrap;
 }
 
@@ -413,6 +427,8 @@ img {
 
 .trailers {
     padding: 40px 0;
+    margin-top: 50px;
+    margin-bottom: 50px;
 }
 
 .trailers__header {
@@ -460,7 +476,9 @@ img {
     cursor: pointer;
     color: #fff;
     font-size: 17px;
-    /* background-color: none; */
+    background-color: #1B2133;
+    width: 60px;
+    height: 60px;
 }
 
 .trailers__swiper {
@@ -555,6 +573,7 @@ img {
 .footer__links a:hover {
     color: white;
 }
+
 .newsletter {
     max-width: 1430px;
     margin: 80px auto;
@@ -638,4 +657,184 @@ img {
 .newsletter__agree a {
     color: #f2f200;
     text-decoration: none;
+}
+
+/* new trailers */
+.new-trailers {
+    margin-top: 80px;
+
+    .new-tariler-up-box {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .h1 {
+            color: white;
+            font-size: 50px;
+            font-weight: 800;
+        }
+
+        .new-trailer-p {
+            color: white;
+            font-size: 20px;
+            font-weight: 600;
+        }
+    }
+
+    .new-trailer-video {
+        border-radius: 10px;
+        overflow: hidden;
+        margin-top: 10px;
+    }
+}
+
+/* popular movies */
+.popular-movies-box {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+
+.popular-movies-page-btns {
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    gap: 23px;
+}
+
+.defis {
+    color: white;
+    font-size: 20px;
+    font-weight: 700;
+    margin-top: 10px;
+}
+
+/* upcomig movies */
+.upcoming-movies {
+    margin-top: 60px;
+}
+
+.upcoming-movies-box {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin-bottom: 50px;
+}
+
+.upcoming-upper-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    .h1 {
+        color: white;
+        font-weight: 800;
+        font-size: 45px;
+        margin-bottom: 20px;
+    }
+}
+
+.upcoming-movies-page-btns {
+    display: flex;
+    justify-content: center;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+    gap: 23px;
+}
+
+/* form */
+.search-container {
+    display: flex;
+    position: absolute;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    width: 100%;
+    top: 0;
+}
+
+.search-container input {
+    flex: 1;
+    border: none;
+    padding: 20px 40px;
+    width: 600px;
+    border-radius: 10px;
+    font-size: 16px;
+    outline: none;
+    color: black;
+    font-weight: 700;
+}
+
+.search-container button {
+    width: 50px;
+    height: 48px;
+    border: none;
+    background: #ffec00;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    transition: background 0.2s;
+    border-radius: 10px;
+    position: absolute;
+    top: 86px;
+    left: 1202px;
+}
+
+.search-container button:hover {
+    background: #ffe400;
+}
+
+.serch-logo-title {
+    margin-top: 30px;
+    margin-bottom: 10px;
+    font-size: 25px;
+    font-weight: 800;
+    text-decoration: none;
+    color: #4c6fff;
+
+    img {
+        width: 30px;
+        margin-right: 3px;
+    }
+}
+
+.serch-logo-title span {
+    color: #ffffff;
+    font-size: 25px;
+}
+
+.overhide {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    backdrop-filter: blur(2px);
+    z-index: 999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: opacity 0.3s ease;
+    opacity: 1;
+}
+.close-search-window{
+    position: absolute;
+    top: 95px;
+    width: 30px;
+    left: 1280px;
+}
+.hide {
+    display: none;
+}
+
+.show {
+    display: flex;
 }
