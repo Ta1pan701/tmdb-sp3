@@ -50,7 +50,7 @@ export function Movie(item) {
 
     // title
     const title = document.createElement("h3");
-    title.textContent = item.original_title;
+    title.textContent = item.title;
 
     // genres
     const genres = document.createElement("p");
