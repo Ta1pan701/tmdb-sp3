@@ -16,6 +16,8 @@ export function Trailer(item) {
 
     let iframe = document.querySelector(".new-trailer-video iframe")
 
+    let trailersTitle = document.querySelector(".trailers__title")
+
     slide.onclick = () => {
         console.log(item);
 
@@ -23,6 +25,7 @@ export function Trailer(item) {
             .then(res => {
                 let trailer = res.data.results.find(item => item.type == "Trailer")
 
+                trailersTitle.textContent = item.title
                 iframe.src = `https://www.youtube.com/embed/${trailer.key}`
             })
     }

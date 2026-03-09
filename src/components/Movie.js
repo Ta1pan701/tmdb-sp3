@@ -19,12 +19,6 @@ const movieGenres = {
     10752: " War",
     37: " Western"
 };
-function normalizeRating(number) {
-    const maxValue = 1000; 
-    let rating = (number / maxValue) * 10;
-    if (rating > 10) rating = 10;
-    return rating.toFixed(1);
-}
 export function Movie(item) {
 
     const movieCard = document.createElement("div");
@@ -56,6 +50,21 @@ export function Movie(item) {
     const genres = document.createElement("p");
     genres.className = "genres";
     genres.textContent = item.genre_ids.map(id => movieGenres[id] || "Unknown");
+
+    // overlay
+    const overlay = document.createElement('div');
+    overlay.className = 'overlay';
+
+    // создаём кнопку
+    const button = document.createElement('button');
+    button.className = 'moreBtn';
+    button.textContent = 'More';
+
+    // вкладываем кнопку в overlay
+    overlay.appendChild(button);
+
+    // добавляем overlay в карточку
+    poster.appendChild(overlay);
 
     // собираем структуру
     poster.appendChild(img);

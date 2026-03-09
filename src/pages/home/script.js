@@ -9,8 +9,9 @@ import { api } from '../../libs/api';
 import { Movie } from "../../components/Movie";
 import { header } from '../../components/header';
 import { footer } from '../../components/footer';
-import { genres } from '../../components/genres';
+// import { genres } from '../../components/genres';
 import { Trailer } from '../../components/Trailer';
+import { genres } from '../../components/Genres';
 header()
 footer()
 
@@ -121,9 +122,11 @@ api.get("movie/popular")
         }
 
     })
+    let movieGenre = document.querySelector(".genres")
 api.get("/genre/movie/list")
     .then(res => {
         render(res.data.genres.slice(0, 6), geanre_list, genres)
+
     })
     let swiperWrapper = document.querySelector(".swiper-wrapper")
 api.get("/movie/upcoming")
