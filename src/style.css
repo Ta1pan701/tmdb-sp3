@@ -1,3 +1,10 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
 :root {
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
@@ -7,25 +14,154 @@
 
 .container {
   padding: 0 30px;
-    max-width: 1430px;
-    margin: 0 auto;
-  }
-
-
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: "Montserrat", sans-serif;
+  max-width: 1430px;
+  margin: 0 auto;
 }
 
 body {
   margin: 0;
   min-width: 320px;
   min-height: 100vh;
+  background-color: #1E2538;
 }
 
-.container {
-  max-width: 1430px;
-  margin: 0 auto;
+header {
+  width: 100%;
+  margin-bottom: 40px;
+  background-color: #1e2638;
+}
+
+.head-cn {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* LEFT */
+
+.left-top {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  flex-direction: column;
+}
+
+.logo-title {
+  font-size: 19px;
+  font-weight: 800;
+  text-decoration: none;
+  color: #4c6fff;
+
+  img {
+    width: 22px;
+    margin-right: 3px;
+  }
+}
+
+.logo-title span {
+  color: #ffffff;
+  font-size: 19px;
+}
+
+.left-top ul {
+  display: flex;
+  list-style: none;
+  gap: 15px;
+}
+
+.logo-link {
+  img {
+    /* background-color: red; */
+    width: 18px;
+    height: 18px;
+    opacity: 0.8;
+    transition: 0.3s;
+  }
+}
+
+.logo-link {
+  img:hover {
+    opacity: 1;
+  }
+}
+
+/* CENTER MENU */
+
+.header-menu {
+  display: flex;
+  list-style: none;
+  gap: 35px;
+  font-weight: 500px;
+}
+
+.center-link {
+  text-decoration: none;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+  transition: 0.3s;
+}
+
+.center-link:hover {
+  color: #d1d5e0;
+}
+
+/* RIGHT */
+
+.right {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.search {
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  border: none;
+  background-color: #2b344b;
+  cursor: pointer;
+  position: relative;
+}
+
+.search::before {
+  content: "🔍";
+  font-size: 16px;
+}
+
+.login {
+  width: 100px;
+  height: 42px;
+  border-radius: 10px;
+  border: none;
+  background-color: #3657cb;
+  color: #fff;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+  box-shadow: 0px 0px 15px rgba(72, 113, 255, 0.8);
+}
+
+.login::before {
+  content: "Login";
+}
+
+.login:hover {
+  opacity: 0.7;
+  background-color: #263d8f;
+}
+
+
+
+.title {
+  font-size: 40px;
+  font-weight: 800;
+  color: #fff;
+}
+
+
+.search-category {
+  text-decoration: none;
+  color: #ffffff;
+  font-weight: 600;
 }

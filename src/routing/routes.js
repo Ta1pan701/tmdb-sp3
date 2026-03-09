@@ -14,3 +14,17 @@ export const routes = [
         }
     },
 ]
+
+export const notFound = {
+    view: async (app) => {
+        const response = await fetch('src/pages/404/index.html')
+
+        app.innerHTML = await response.text()
+    },
+    loadStyles: async () => {
+        await import("../pages/404/style.css")
+    },
+    loadScripts: async () => {
+        await import("../pages/404/script.js")
+    }
+}
