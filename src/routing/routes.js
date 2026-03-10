@@ -14,7 +14,7 @@ export const routes = [
         }
     },
     {
-        path: /^\/$/,
+        path: /^\/movie$/,
         view: async (app) => {
             const response = await fetch('src/pages/movie/index.html')
 
