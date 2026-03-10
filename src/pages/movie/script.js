@@ -1,7 +1,20 @@
 // git branch - проверка ветки
 // git fetch - загружает ветки
-// git checkout <name> - переключение на ветку
 
-// git add .
-// git commit -m "swiper for trailers"
-// git push
+import { DetailedMovie } from "../../components/detailedMovie";
+import { footer } from "../../components/footer";
+import { header } from "../../components/header";
+import { api } from "../../libs/api";
+import { render } from "../../libs/render";
+
+console.log(1);
+header()
+footer()
+let movieId = JSON.parse(localStorage.getItem("movieId"))
+console.log(movieId);
+
+api.get(`/movie/${movieId}`)
+.then(res=>{
+    console.log(res.data);
+    DetailedMovie(res.data)
+})

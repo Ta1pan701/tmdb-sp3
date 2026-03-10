@@ -4,7 +4,7 @@ export function header() {
     box.innerHTML = `
     <div class="container head-cn">
         <div>
-            <div class="left-top">
+            <div class="header-left-top">
                 <a href="/" class="logo-title"><img src="https://kinoarea.com/front/img/logo-icon.svg" width="22px"
                         height="22px" alt="">Kino<span>area</span></a>
                 <ul>
@@ -25,7 +25,7 @@ export function header() {
                 </ul>
             </div>
         </div>
-        <div class="center">
+        <div class="header-center">
             <ul class="header-menu">
                 <li><a href="/" class="center-link">Premiere</a></li>
                 <li><a href="/" class="center-link">Films</a></li>
@@ -36,7 +36,7 @@ export function header() {
                 <li><a href="/" class="center-link">Search</a></li>
             </ul>
         </div>
-        <div class="right">
+        <div class="header-right">
             <button class="search"></button>
             <button class="login"></button>
         </div>

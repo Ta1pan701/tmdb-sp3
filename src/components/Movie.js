@@ -1,4 +1,4 @@
-const movieGenres = {
+export const movieGenres = {
     28: " Action",
     12: " Adventure",
     16: " Animation",
@@ -77,7 +77,8 @@ export function Movie(item) {
     movieCard.appendChild(movieInfo);
 
     movieCard.onclick = () => {
-        window.location.href ="/src/pages/movie/index.html"
+        window.location.href ="/movie"
+        localStorage.setItem("movieId", item.id)
     }
     return movieCard
 }

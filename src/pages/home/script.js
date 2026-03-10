@@ -69,100 +69,24 @@ close_search_window.onclick = () => {
     search_waindow.classList.add("hide")
 }
 
-let first = 0
-let second = 4
-let page = 1
 
-api.get("/person/popular")
-    .then(res => {
-        render(res.data.results.slice(0, 2), popular_people_box1, popularPeople)
-        render(res.data.results.slice(2, 6), popular_people_box2, popularPeoples)
-    })
-
-
-api.get("movie/popular")
-    .then(res => {
-        render(Object.values(res.data.results), cardBox, Movie)
-    })
-api.get("movie/popular")
-    .then(res => {
-        render(Object.values(res.data.results).slice(0, 4), popular_movies_box, Movie)
-
-        popular_movies_next_btn.onclick = () => {
-            let movies = Object.values(res.data.results)
-            first += 4;
-            second += 4;
-            page += 1;
-            popular_movies_page.textContent = page
-
-            if (first > 12) {
-                first = 0;
-                second = 4;
-                page = 1;
-                popular_movies_page.textContent = page
-            }
-
-            render(movies.slice(first, second), popular_movies_box, Movie);
-        }
-        popular_movies_last_btn.onclick = () => {
-            let movies = Object.values(res.data.results)
-            first -= 4;
-            second -= 4;
-            page -= 1;
-            popular_movies_page.textContent = page
-
-            if (first < 0) {
-                first = 12;
-                second = 16;
-                page = 4;
-                popular_movies_page.textContent = page
-            }
-
-            render(movies.slice(first, second), popular_movies_box, Movie);
-        }
-
-    })
-    let movieGenre = document.querySelector(".genres")
-api.get("/genre/movie/list")
-    .then(res => {
-        render(res.data.genres.slice(0, 6), geanre_list, genres)
-
-    })
-    let swiperWrapper = document.querySelector(".swiper-wrapper")
-api.get("/movie/upcoming")
-    .then(res => {
-        render(res.data.results.slice(0, 4), upcomig_movies_box, Movie)
-        render(res.data.results, swiperWrapper, Trailer)
-        upcomig_movies_next_btn.onclick = () => {
-            let movies = res.data.results
-            first += 4;
-            second += 4;
-            page += 1;
-            upcomig_movies_page.textContent = page
-
-            if (first > 8) {
-                first = 0;
-                second = 4;
-                page = 1;
-                upcomig_movies_page.textContent = page
-            }
-
-            render(movies.slice(first, second), upcomig_movies_box, Movie);
-        }
-        upcomig_movies_last_btn.onclick = () => {
-            let movies = Object.values(res.data.results)
-            first -= 4;
-            second -= 4;
-            page -= 1;
-            upcomig_movies_page.textContent = page
-
-            if (first < 0) {
-                first = 8;
-                second = 12;
-                page = 3;
-                upcomig_movies_page.textContent = page
-            }
-
-            render(movies.slice(first, second), upcomig_movies_box, Movie);
-        }
-    })
+let swiperWrapper = document.querySelector(".swiper-wrapper")
+let personApi = api.get("/person/popular")
+let popularMovieApi = api.get("movie/popular")
+let genresApi = api.get("/genre/movie/list")
+let upcomigMovieApi = api.get("/movie/upcoming")
+Promise.all([personApi, popularMovieApi, genresApi, upcomigMovieApi])
+.then(([personRes, popularMovieRes, genresRes, upcomigMovieRes])=>{
+    console.log(personRes, popularMovieRes, genresRes, upcomigMovieRes);
+    
+    render(personRes.data.results.slice(0, 2), popular_people_box1, popularPeople)
+    render(personRes.data.results.slice(2, 6), popular_people_box2, popularPeoples)
+    
+    render(popularMovieRes.data.results, cardBox, Movie)
+    render(popularMovieRes.data.results.slice(0, 4), popular_movies_box, Movie)
+    
+    render(upcomigMovieRes.data.results, swiperWrapper, Trailer)
+    render(upcomigMovieRes.data.results.slice(0, 4), upcomig_movies_box, Movie)
+    
+    render(genresRes.data.genres.slice(0, 6), geanre_list, genres)
+ })

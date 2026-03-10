@@ -1,0 +1,134 @@
+
+
+/* основной контейнер */
+.parent-box {
+    margin: auto;
+    display: flex;
+    gap: 40px;
+    color: #ffffff;
+    margin-bottom: 50px;
+}
+
+.movie-cn{
+    
+    background-image: url("https://image.tmdb.org/t/p/original/h8gHn0OzBoaefsYseUByqsmEDMY.jpg");
+    /* background-position: center; */
+}
+
+.movie-left-img {
+    width: 100%;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.6);
+}
+
+/* правая часть */
+.cn-movie-right {
+    flex: 1;
+}
+
+/* навигация */
+.navigation {
+    color: #8ea2c8;
+    margin-bottom: 10px;
+    font-size: 14px;
+}
+
+.navigation span {
+    color: #fff;
+}
+
+/* заголовок */
+.movie-title {
+    font-size: 42px;
+    margin-bottom: 5px;
+}
+
+.movie-small-title {
+    color: #a9b6d1;
+    margin-bottom: 20px;
+}
+
+/* кнопки рейтинга */
+.diagrams {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.diagram-btns {
+    width: 45px;
+    height: 45px;
+    border-radius: 10px;
+    border: none;
+    background: #1d2a44;
+    color: #fff;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.diagram-btns:hover {
+    background: #2d3f64;
+}
+
+/* описание */
+.description {
+    max-width: 600px;
+    line-height: 1.6;
+    color: #ffffff;
+    margin-bottom: 25px;
+}
+span{
+    color: #ffffff;
+
+}
+/* кнопка трейлера */
+.trailer-btn {
+    width: 250px;
+    height: 60px;
+    border: 2px solid #ffffff;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+    border-radius: 10px;
+    background: none;
+    font-family: Qanelas, sans-serif;
+    font-style: normal;
+    font-weight: bold;
+    font-size: 16px;
+    line-height: 1;
+    color: #ffffff;
+    -webkit-transition: 0.5s;
+    -o-transition: 0.5s;
+    transition: 0.5s;
+}
+
+.trailer-btn:hover {
+    background: #2b3f6e;
+}
+
+/* таблица данных */
+.small-data{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px 40px;
+    color: #cdd7ec;
+}
+
+.small-data p {
+    font-size: 14px;
+}
+
+/* выделенные значения */
+.small-data span {
+    color: #ffd84c;
+}
+
+
+.cn-movie-left {
+    width: 400px;
+    margin-right: 20px;
+}
+
+
+
+
+
