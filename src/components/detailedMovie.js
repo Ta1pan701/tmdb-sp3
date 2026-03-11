@@ -2,7 +2,7 @@ import { movieGenres } from "./Movie"
 
 let container = document.querySelector(".container")
 export function DetailedMovie(item) {
-    container.style.backgroundImage = `url(https://image.tmdb.org/t/p/original${item.poster_path})`;
+    container.style.backgroundImage = `url(https://image.tmdb.org/t/p/original${item.backdrop_path})`;
     let parentBox = document.createElement("div")
     parentBox.className = "parent-box"
     let bottomContainer = document.createElement("div")
@@ -32,7 +32,7 @@ export function DetailedMovie(item) {
     /* small title */
     const smallTitle = document.createElement("p");
     smallTitle.className = "movie-small-title";
-    smallTitle.textContent = `${item.title} ${item.release_date.slice(0,4)}`;
+    smallTitle.textContent = `${item.title} ${item.release_date.slice(0, 4)}`;
 
     /* diagrams buttons */
     const diagrams = document.createElement("div");
@@ -59,14 +59,14 @@ export function DetailedMovie(item) {
     smallData.className = "small-data";
 
     const data = [
-        "Premiere World: "+item.release_date,
-        "Premiere US: "+item.release_date,
-        "Time: "+item.runtime,
-        "Slogan: "+item.tagline,
+        "Premiere World: " + item.release_date,
+        "Premiere US: " + item.release_date,
+        "Time: " + item.runtime,
+        "Slogan: " + item.tagline,
         "MPAA Rating: R",
-        "Genre: "+item.genres.map(id => movieGenres[id] || "Unknown"),
-        "Year: "+item.release_date.slice(0,4),
-        "Country: "+Object.values(item.production_countries)[0],
+        "Genre: " + item.genres.map(item => movieGenres[item.id] || "Unknown"),
+        "Year: " + item.release_date.slice(0, 4),
+        "Country: " + item.production_countries.map(item => item.name),
         "Production: Chris Hemsworth",
         "Camera: Erik Wilson",
         "Art: Scott Dougan",
