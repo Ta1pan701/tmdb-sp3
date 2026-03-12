@@ -12,6 +12,8 @@ import { footer } from '../../components/footer';
 // import { genres } from '../../components/genres';
 import { Trailer } from '../../components/Trailer';
 import { genres } from '../../components/Genres';
+import { SearchMovie } from '../../components/searchMovie';
+import { searchPerson } from '../../components/searchPerson';
 header()
 footer()
 
@@ -90,3 +92,31 @@ Promise.all([personApi, popularMovieApi, genresApi, upcomigMovieApi])
     
     render(genresRes.data.genres.slice(0, 6), geanre_list, genres)
  })
+ let searchTypes = document.querySelectorAll(".type")
+let searchInp = document.querySelector('.search-content')
+let searchResults = document.querySelector(".render-box")
+function changeType(type) {
+    console.log(type);
+
+    searchInp.onkeyup = () => {
+        api.get(`/search/${type}?query=${searchInp.value}`)
+            .then(res => {
+                console.log(res.data);
+                if(type == "movie"){
+                    render(Object.values(res.data.results), searchResults, SearchMovie)
+                } else if(type == "person") {
+                    render(Object.values(res.data.results), searchResults, searchPerson)
+                } else {
+                    render(Object.values(res.data.results), searchResults, SearchMovie)
+                }
+            })
+    }
+
+}
+changeType('movie')
+
+searchTypes.forEach((type, i) => {
+    type.onclick = () => {
+        changeType(type.id)
+    }
+})
