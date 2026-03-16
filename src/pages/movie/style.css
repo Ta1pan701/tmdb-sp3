@@ -252,3 +252,23 @@ span {
     position: absolute;
     right: 100px;
 }
+.card {
+  width: 260px;
+  background: #0f1b2d;
+  color: white;
+  border-radius: 12px;
+  padding: 10px;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.card h3 {
+  margin: 10px 0 5px;
+}
+
+.card p {
+  color: #9aa3b2;
+}

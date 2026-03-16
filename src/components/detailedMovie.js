@@ -35,7 +35,7 @@ export function DetailedMovie(item) {
     /* small title */
     const smallTitle = document.createElement("p");
     smallTitle.className = "movie-small-title";
-    smallTitle.textContent = `${item.title} ${item.release_date.slice(0, 4)}`;
+    // smallTitle.textContent = `${item.title} ${item.release_date.slice(0, 4)}`;
 
     /* diagrams buttons */
     const diagrams = document.createElement("div");
@@ -67,9 +67,9 @@ export function DetailedMovie(item) {
         "Time: " + item.runtime,
         "Slogan: " + item.tagline,
         "MPAA Rating: R",
-        "Genre: " + item.genres.map(item => movieGenres[item.id] || "Unknown"),
-        "Year: " + item.release_date.slice(0, 4),
-        "Country: " + item.production_countries.map(item => item.name),
+        // "Genre: " + item.genres.map(elem => movieGenres[elem.id] || "Unknown"),
+        // "Year: " + item.release_date.slice(0, 4),
+        // "Country: " + item.production_countries.map(elem => elem.name),
         "Production: Chris Hemsworth",
         "Camera: Erik Wilson",
         "Art: Scott Dougan",
