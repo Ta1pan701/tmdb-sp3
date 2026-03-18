@@ -76,7 +76,6 @@ export function DetailedMovie(item) {
         "Studios: Amazon MGM Studios"
     ];
 
-    console.log(data);
 
 
     data.forEach(elem => {
@@ -102,6 +101,8 @@ export function DetailedMovie(item) {
     parentBox.appendChild(right);
     bottomContainer.append(smallData)
     container.append(parentBox, bottomContainer)
+    let trailerTitle = document.querySelector(".trailer-title")
+    trailerTitle.textContent = item.title
 
     return container
 }

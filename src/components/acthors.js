@@ -3,15 +3,15 @@ export function Acthors(item) {
     card.classList.add("card")
 
     let img = document.createElement("img")
-    img.src = "https://upload.wikimedia.org/wikipedia/commons/3/3f/Priyanka_Chopra_Jonas_2023.jpg"
+    img.src = `https://image.tmdb.org/t/p/original${item.profile_path}`
 
-    let title = document.createElement("h3")
-    title.innerText = "Priyanka Chopra Jonas"
+    let name = document.createElement("h3")
+    name.innerText = item.name
 
     let text = document.createElement("p")
-    text.innerText = "Priyanka Chopra Jonas"
+    text.innerText = item.name
 
-    card.append(img, title, text)
+    card.append(img, name, text)
 
     return card
 }

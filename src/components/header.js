@@ -1,7 +1,8 @@
+import { api } from "../libs/api"
+import { render } from "../libs/render"
+import {SearchMovie} from "../components/searchMovie"
 let close_search_window = document.querySelector(".close-search-window")
 let search_waindow = document.querySelector(".overhide")
-console.log(search_waindow);
-console.log(close_search_window);
 
 export function header() {
     let header = document.querySelector("header")
@@ -66,3 +67,31 @@ export function header() {
     headerRight.appendChild(loginBtn);
     headCn.append(headerRight)
 }
+
+let searchTypes = document.querySelectorAll(".type")
+let searchInp = document.querySelector('.search-content')
+let searchResults = document.querySelector(".render-box")
+function changeType(type) {
+
+    searchInp.onkeyup = () => {
+        api.get(`/search/${type}?query=${searchInp.value}`)
+            .then(res => {
+                console.log(res.data);
+                if (type == "movie") {
+                    render(Object.values(res.data.results), searchResults, SearchMovie)
+                } else if (type == "person") {
+                    render(Object.values(res.data.results), searchResults, searchPerson)
+                } else {
+                    render(Object.values(res.data.results), searchResults, SearchMovie)
+                }
+            })
+    }
+
+}
+changeType('movie')
+
+searchTypes.forEach((type, i) => {
+    type.onclick = () => {
+        changeType(type.id)
+    }
+})

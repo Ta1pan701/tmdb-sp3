@@ -9,48 +9,38 @@ import { render } from "../../libs/render";
 header()
 footer()
 let movieId = JSON.parse(localStorage.getItem("movieId"))
-console.log(movieId);
 
-let acthorsBox = document.querySelector(".test")
+let acthorsBox = document.querySelector(".acthors-render")
 let test = document.querySelector(".render-box")
-console.log(acthorsBox);
 
 let movieApi = api.get(`/movie/${movieId}`)
 let acthorsApi = api.get(`movie/${movieId}/credits `)
 
 Promise.all([movieApi, acthorsApi])
     .then(([movieRes, acthorsRes]) => {
-        console.log(movieRes);
-        console.log(acthorsRes);
         DetailedMovie(movieRes.data)
-        render(acthorsRes.data, acthorsBox, Acthors)
+        render(acthorsRes.data.cast.slice(0, 10), acthorsBox, Acthors)
     })
 
-let searchTypes = document.querySelectorAll(".type")
-let searchInp = document.querySelector('.search-content')
-let searchResults = document.querySelector(".render-box")
-function changeType(type) {
-    console.log(type);
+let frame = document.querySelector("iframe")
+let movieTitle = document.querySelector(".movie-title")
+let photoElem = document.querySelectorAll(".photo-elem img")
+api.get(`/movie/${movieId}/videos`)
+    .then(res => {
+        let trailer = res.data.results.find(item => item.type == "Trailer")
+        // console.log(res);
 
-    searchInp.onkeyup = () => {
-        api.get(`/search/${type}?query=${searchInp.value}`)
+        frame.src = `https://www.youtube.com/embed/${trailer.key}`
+    })
+    console.log(photoElem);
+    
+        api.get(`/movie/${movieId}/images`)
             .then(res => {
-                console.log(res.data);
-                if (type == "movie") {
-                    render(Object.values(res.data.results), searchResults, SearchMovie)
-                } else if (type == "person") {
-                    render(Object.values(res.data.results), searchResults, searchPerson)
-                } else {
-                    render(Object.values(res.data.results), searchResults, SearchMovie)
-                }
-            })
-    }
+                let photoPath = res.data.backdrops.map(item => item.file_path);
 
-}
-changeType('movie')
-
-searchTypes.forEach((type, i) => {
-    type.onclick = () => {
-        changeType(type.id)
-    }
-})
+                photoElem.forEach((elem, index) => {
+                    if (photoPath[index]) {
+                        elem.src = `https://image.tmdb.org/t/p/original${photoPath[index]}`;
+                    }
+                });
+            });
