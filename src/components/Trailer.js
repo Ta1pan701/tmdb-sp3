@@ -1,6 +1,7 @@
 import { api } from "../libs/api"
 
-export function Trailer(item) {
+export function Trailer(item, arr) {
+    
     const slide = document.createElement("div")
     slide.className = "swiper-slide"
 
@@ -17,6 +18,13 @@ export function Trailer(item) {
     let iframe = document.querySelector(".new-trailer-video iframe")
 
     let trailersTitle = document.querySelector(".trailers__title")
+    api.get(`/movie/${arr[0].id}/videos`)
+        .then(res => {
+            let trailer = res.data.results.find(item => item.type == "Trailer")
+
+            trailersTitle.textContent = `${arr[0].title} trailer`
+            iframe.src = `https://www.youtube.com/embed/${trailer.key}`
+        })
 
     slide.onclick = () => {
         console.log(item);
@@ -25,7 +33,7 @@ export function Trailer(item) {
             .then(res => {
                 let trailer = res.data.results.find(item => item.type == "Trailer")
 
-                trailersTitle.textContent = item.title
+                trailersTitle.textContent = `${item.title} trailer`
                 iframe.src = `https://www.youtube.com/embed/${trailer.key}`
             })
     }

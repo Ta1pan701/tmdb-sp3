@@ -20,6 +20,8 @@ export const movieGenres = {
     37: "Western"
 };
 export function Movie(item) {
+    const movieSwiper = document.createElement("div");
+    movieSwiper.classList.add("swiper-slide")
 
     const movieCard = document.createElement("div");
     movieCard.className = "movie-card";
@@ -81,6 +83,6 @@ export function Movie(item) {
 
         window.location.href = "/movie"
     }
-
-    return movieCard
+    movieSwiper.append(movieCard)
+    return movieSwiper
 }

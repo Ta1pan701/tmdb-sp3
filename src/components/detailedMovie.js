@@ -56,7 +56,12 @@ export function DetailedMovie(item) {
     const trailerBtn = document.createElement("button");
     trailerBtn.className = "trailer-btn";
     trailerBtn.textContent = "Watch Trailer";
-
+    trailerBtn.onclick =()=>{
+        window.scrollTo({
+            top: 2150,
+            behavior: "smooth"
+        })
+    }
     /* small data */
     const smallData = document.createElement("div");
     smallData.className = "small-data";

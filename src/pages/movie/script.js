@@ -17,19 +17,22 @@ let movieApi = api.get(`/movie/${movieId}`)
 let acthorsApi = api.get(`movie/${movieId}/credits `)
 
 Promise.all([movieApi, acthorsApi])
-    .then(([movieRes, acthorsRes]) => {
-        DetailedMovie(movieRes.data)
-        render(acthorsRes.data.cast.slice(0, 10), acthorsBox, Acthors)
+.then(([movieRes, acthorsRes]) => {
+    DetailedMovie(movieRes.data)
+    console.log(movieRes);
+    
+    render(acthorsRes.data.cast.slice(0, 10), acthorsBox, Acthors)
+    movieTitle.textContent = `${movieRes.data.title} trailer`
     })
 
 let frame = document.querySelector("iframe")
-let movieTitle = document.querySelector(".movie-title")
+let movieTitle = document.querySelector(".trailer-title")
 let photoElem = document.querySelectorAll(".photo-elem img")
 api.get(`/movie/${movieId}/videos`)
     .then(res => {
+        
         let trailer = res.data.results.find(item => item.type == "Trailer")
         // console.log(res);
-
         frame.src = `https://www.youtube.com/embed/${trailer.key}`
     })
     console.log(photoElem);
