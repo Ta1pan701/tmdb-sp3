@@ -10,6 +10,10 @@ export function popularPeople(item, arr) {
         </div>
         `;
     leftBox.querySelector(".pop-place").classList.add(`p-${arr.indexOf(item) + 1}`);
+    leftBox.onclick = () => {
+        localStorage.setItem("personId", item.id)
+        window.location.href ="/acthor"
+    }
     return leftBox;
 }
 
@@ -25,5 +29,9 @@ export function popularPeoples(item, arr) {
         <p class="pop-places">${arr.indexOf(item) + 3} Place</p>
         `;
     rightBox.querySelector(".pop-places").classList.add(`p-${arr.indexOf(item) + 3}`);
+    rightBox.onclick = () => {
+        localStorage.setItem("personId", item.id)
+        window.location.href ="/acthor"
+    }
     return rightBox;
 }

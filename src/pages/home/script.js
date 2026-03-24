@@ -69,8 +69,8 @@ Promise.all([personApi, popularMovieApi, genresApi, upcomigMovieApi])
         render(popularMovieRes.data.results, cardBox, Movie)
         render(popularMovieRes.data.results, popular_movies_box, Movie)
         const movieSwiper = new Swiper(".swiperMovie", {
-            slidesPerView: 5,
-            slidesPerGroup: 5,
+            slidesPerView: 4,
+            slidesPerGroup: 4,
             loop: true,
             spaceBetween: 20,
             modules: [Navigation, Pagination],
@@ -87,14 +87,14 @@ Promise.all([personApi, popularMovieApi, genresApi, upcomigMovieApi])
         render(upcomigMovieRes.data.results, swiperWrapper, Trailer)
         render(upcomigMovieRes.data.results, upcomig_movies_box, Movie)
         const upcomingSwiper = new Swiper(".upcomingSwiper", {
-            slidesPerView: 5,
-            slidesPerGroup: 5,
+            slidesPerView: 4,
+            slidesPerGroup: 4,
             loop: true,
             spaceBetween: 20,
             modules: [Navigation],
             pagination: {
-                el: ".swiper-pagination",
-                type: "fraction",
+                // el: ".swiper-pagination",
+                // type: "fraction",
             },
 
             navigation: {

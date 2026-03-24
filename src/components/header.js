@@ -36,7 +36,7 @@ export function header() {
                 <li><a href="/" class="center-link">Premiere</a></li>
                 <li><a href="/" class="center-link">Films</a></li>
                 <li><a href="/" class="center-link">Media</a></li>
-                <li><a href="/" class="center-link">Persons</a></li>
+                <li><a href="/acthor" class="center-link">Persons</a></li>
                 <li><a href="/" class="center-link">Collections</a></li>
                 <li><a href="/" class="center-link">Upcoming</a></li>
                 <li><a href="/" class="center-link">Search</a></li>

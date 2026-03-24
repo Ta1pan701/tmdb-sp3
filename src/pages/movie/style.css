@@ -16,7 +16,7 @@
 
 
 .bg-box {
-    /* width: 100%; 
+    width: 100%; 
     height: 100%;
     background-repeat: no-repeat;
     background-size: cover;
@@ -24,7 +24,7 @@
     position: absolute;
     z-index: 0;
     left: 0;
-    top: 0;  */
+    top: 0; 
 }
 
 .bg-gradient {
@@ -335,9 +335,132 @@ span {
     display: grid;
     grid-template-columns: repeat(2, 700px);
     gap: 24px;
+    margin-bottom: 50px;
+}
+.photo-elem{
+    position: relative;
 
 }
-.photo-elem img{
+.photo-elem img {
     width: 100%;
     height: 100%;
+}
+
+.poster-container {
+    margin-top: 100px;
+}
+
+.posters-box {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 100px;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+
+    background: rgba(40, 70, 160, 0.8);
+    /* цвет как на скрине */
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    color: white;
+    font-size: 32px;
+    font-weight: bold;
+
+    /* display: flex;
+    align-items: center;
+    justify-content: center; */
+
+}
+.newsletter {
+    max-width: 1430px;
+    margin: 80px auto;
+    border-radius: 20px;
+    overflow: hidden;
+    background: url("https://images.unsplash.com/photo-1489599849927-2ee91cede3ba") center/cover no-repeat;
+    background-color: #0f172a;
+}
+
+.newsletter__overlay {
+    background: linear-gradient(135deg, #2e4adee6, #1e2a78f2);
+    padding: 80px 20px;
+    text-align: center;
+    color: white;
+}
+
+.newsletter__box {
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+.newsletter__logo {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 25px;
+}
+
+.newsletter__logo span {
+    color: #4f7cff;
+}
+
+.newsletter h2 {
+    font-size: 40px;
+    font-weight: 700;
+    margin-bottom: 20px;
+}
+
+.newsletter p {
+    color: #d1d5db;
+    margin-bottom: 40px;
+    line-height: 1.6;
+}
+
+.newsletter__form {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.newsletter__form input {
+    width: 400px;
+    padding: 16px;
+    border-radius: 10px;
+    border: none;
+    font-size: 14px;
+}
+
+.newsletter__form button {
+    padding: 16px 35px;
+    border-radius: 10px;
+    border: none;
+    background: #f2f200;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.newsletter__form button:hover {
+    opacity: 0.85;
+}
+
+.newsletter__agree {
+    font-size: 14px;
+    color: #cbd5e1;
+}
+
+.newsletter__agree input {
+    margin-right: 8px;
+}
+
+.newsletter__agree a {
+    color: #f2f200;
+    text-decoration: none;
 }
