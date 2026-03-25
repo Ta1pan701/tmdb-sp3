@@ -7,6 +7,9 @@ export function searchPerson(item) {
         <p class="pop-name">${item.name}</p>
         <p class="pop-fullname">${item.original_name}</p>
         </div>`
-        
+        rightBox.onclick = () => {
+        localStorage.setItem("personId", item.id)
+        window.location.href ="/acthor"
+    }
     return rightBox;
 }
