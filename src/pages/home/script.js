@@ -10,7 +10,7 @@ import { Movie } from "../../components/Movie";
 import { header } from '../../components/header';
 import { footer } from '../../components/footer';
 import { Trailer } from '../../components/Trailer';
-import { genres } from '../../components/Genres';
+import { genres } from '../../components/genres';
 import { SearchMovie } from '../../components/searchMovie';
 import { searchPerson } from '../../components/searchPerson';
 header()
