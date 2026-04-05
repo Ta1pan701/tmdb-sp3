@@ -343,6 +343,7 @@ body {
     overflow-x: hidden;
     position: relative;
 }
+
 .trailers__swiper .swiper-slide img {
     max-width: 100%;
     height: 100%;
@@ -361,7 +362,8 @@ body {
 }
 
 .swiper-scrollbar {
-    position: relative !important; /* ВАЖНО */
+    position: relative !important;
+    /* ВАЖНО */
     margin-top: 10px;
     width: 100% !important;
     left: 0 !important;
@@ -460,25 +462,25 @@ body {
 /* new trailers */
 .new-trailers {
     margin-top: 80px;
-    
+
     .new-tariler-up-box {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        
+
         .h1 {
             color: white;
             font-size: 50px;
             font-weight: 800;
         }
-        
+
         .new-trailer-p {
             color: white;
             font-size: 20px;
             font-weight: 600;
         }
     }
-    
+
     .new-trailer-video {
         border-radius: 10px;
         overflow: hidden;
@@ -495,9 +497,12 @@ body {
     overflow: hidden;
 }
 
-.swiper-pagination{
-  color: white;
-  font-size: 14px;
+.swiper-pagination {
+    color: white !important;
+    font-size: 48px;
+    /* background-color: red; */
+    position: absolute !important;
+    
 }
 
 .popular-movies-page-btns {
@@ -507,6 +512,7 @@ body {
     font-size: 18px;
     font-weight: 600;
     gap: 23px;
+    position: relative !important;
 }
 
 .defis {

@@ -1,5 +1,5 @@
 import axios from "axios";
-let accesToken = import.meta.env.VITE_ACCESS_TOKEN
+export let accesToken = import.meta.env.VITE_ACCESS_TOKEN
 
 export const api = axios.create({
     baseURL: " https://api.themoviedb.org/3",

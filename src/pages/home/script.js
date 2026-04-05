@@ -57,11 +57,9 @@ let popularMovieApi = api.get("movie/popular")
 let genresApi = api.get("/genre/movie/list")
 let upcomigMovieApi = api.get("/movie/upcoming")
 let test = document.querySelector(".popular-movies-next-btn")
-console.log(test);
 
 Promise.all([personApi, popularMovieApi, genresApi, upcomigMovieApi])
     .then(([personRes, popularMovieRes, genresRes, upcomigMovieRes]) => {
-        console.log(personRes, popularMovieRes, genresRes, upcomigMovieRes);
 
         render(personRes.data.results.slice(0, 2), popular_people_box1, popularPeople)
         render(personRes.data.results.slice(2, 6), popular_people_box2, popularPeoples)
@@ -109,7 +107,6 @@ let searchInp = document.querySelector('.search-content')
 let searchResults = document.querySelector(".render-box")
 
 function changeType(type) {
-    console.log(type);
 
     searchInp.onkeyup = () => {
         api.get(`/search/${type}?query=${searchInp.value}`)

@@ -1,8 +1,10 @@
+import { accesToken } from "../libs/api";
 import { movieGenres } from "./Movie"
-
+import { api } from "../libs/api";
 let container = document.querySelector(".container")
 let bgBox = document.querySelector(".bg-box")
-
+let account_id = "22829525"
+let sessionId = sessionStorage.getItem("session_id")
 export function DetailedMovie(item) {
 
     bgBox.style.backgroundImage = `url(https://image.tmdb.org/t/p/original${item.backdrop_path})`;
@@ -41,11 +43,40 @@ export function DetailedMovie(item) {
     const diagrams = document.createElement("div");
     diagrams.className = "diagrams";
 
+    let btnSrc = {
+        parameters: "https://kinoarea.com/front/img/list.png",
+        like: "https://avatars.mds.yandex.net/i?id=12686088810cb0a84e3b1b7392706cc3dd14dd0b-5339933-images-thumbs&n=13",
+        favorite: "https://img.freepik.com/premium-vector/favorites-icon-white-background-bookmark-linear-style_166116-6044.jpg?w=360",
+    }
+    let values = Object.values(btnSrc)
     for (let i = 0; i < 3; i++) {
         const btn = document.createElement("button");
         btn.className = "diagram-btns";
+        btn.id = i
+        btn.style.backgroundImage = `url(${values[i]})`
         diagrams.appendChild(btn);
+        if (btn.id == "2") {
+            btn.onclick = () => {
+                api.post(
+                    `/account/${account_id}/favorite?api_key=${accesToken}&session_id=${sessionId}`,
+
+                    {
+                        media_type: 'movie',
+                        media_id: 550,
+                        favorite: true
+                    },
+
+                    {
+                        headers: {
+                            "Content-Type": "application/json;charset=utf-8",
+                        }
+                    }
+                )
+
+            }
+        }
     }
+
 
     /* description */
     const description = document.createElement("p");
@@ -56,7 +87,7 @@ export function DetailedMovie(item) {
     const trailerBtn = document.createElement("button");
     trailerBtn.className = "trailer-btn";
     trailerBtn.textContent = "Watch Trailer";
-    trailerBtn.onclick =()=>{
+    trailerBtn.onclick = () => {
         window.scrollTo({
             top: 2150,
             behavior: "smooth"

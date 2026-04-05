@@ -41,6 +41,20 @@ export const routes = [
             await import("../pages/acthor/script.js")
         }
     },
+    {
+        path: /^\/account$/,
+        view: async (app) => {
+            const response = await fetch('/pages/account/index.html')
+
+            app.innerHTML = await response.text()
+        },
+        loadStyles: async () => {
+            await import("../pages/account/style.css")
+        },
+        loadScripts: async () => {
+            await import("../pages/account/script.js")
+        }
+    },
 ]
 
 export const notFound = {

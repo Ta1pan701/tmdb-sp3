@@ -9,6 +9,7 @@ import { Scrollbar, FreeMode, Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
+import { tableMovie } from "../../components/tableMovie";
 header()
 footer()
 let personId = JSON.parse(localStorage.getItem("personId"))
@@ -20,10 +21,12 @@ api.get(`/person/${personId}`)
         DetailedActhor(res.data)
     })
 let bestFilms = document.querySelector(".swiper-wrapper")
+let tableMovieBox = document.querySelector(".table-movie-box")
 api.get(`/person/${personId}/movie_credits`)
     .then(res=>{
         console.log(res.data);
         render(res.data.crew, bestFilms, Movie)
+        render(res.data.crew, tableMovieBox, tableMovie)
         const newSwiper = new Swiper(".swiper", {
             slidesPerView: 4,
             slidesPerGroup: 3,
@@ -41,3 +44,4 @@ api.get(`/person/${personId}/movie_credits`)
             },
         });
     })
+    

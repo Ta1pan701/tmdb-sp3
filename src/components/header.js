@@ -1,6 +1,6 @@
 import { api } from "../libs/api"
 import { render } from "../libs/render"
-import {SearchMovie} from "../components/searchMovie"
+import { SearchMovie } from "../components/searchMovie"
 let close_search_window = document.querySelector(".close-search-window")
 let search_waindow = document.querySelector(".overhide")
 
@@ -42,11 +42,23 @@ export function header() {
                 <li><a href="/" class="center-link">Search</a></li>
             </ul>
         </div>
-    </div>`
+    </div>
+        <div id="modal" class="modal">
+          <div class="modal-content">
+            <span class="close">x</span>
+    
+            <h2>Login</h2>
+            <form name = "loginAsGuest">
+            <input type="text" name="name" placeholder="Введите свое имя">
+            <button class="login-btn">login as guest</button>
+            </form>
+            
+          </div>
+        </div>`
     let headCn = document.querySelector(".head-cn")
     const headerRight = document.createElement("div");
     headerRight.className = "header-right";
-    
+
     const searchBtn = document.createElement("button");
     searchBtn.className = "search";
     close_search_window.onclick = () => {
@@ -56,15 +68,59 @@ export function header() {
     searchBtn.onclick = () => {
         search_waindow.classList.add("show")
         search_waindow.classList.remove("hide")
-            
+
         console.log(1);
-        
+
     }
     const loginBtn = document.createElement("button");
     loginBtn.className = "login";
+    const modal = document.querySelector(".modal")
+    const closeBtn = document.querySelector(".close");
+    let guestSignUp = document.querySelector(".login-btn")
+    let avatar = document.createElement("div")
+    avatar.classList.add("hide")
+    let form = document.forms.loginAsGuest
+    form.onsubmit = (e) => {
+        e.preventDefault()
+        let fn = new FormData(form)
+        let userName = fn.get("name")
+        console.log(userName);
+        api.get("authentication/guest_session/new")
+            .then(res => {
+                let sessionId = sessionStorage.getItem("session_id")
+                sessionStorage.setItem("session_id", res.data.guest_session_id)
+                if (sessionId) {
+                    avatar.classList.remove("hide")
+                    loginBtn.style.display = "none"
+                    avatar.innerHTML = `<div class="circle">
+                    <h3 class ="">${userName[0]}</h3>
+                    </div>`
+                    avatar.onclick = () => {
+                        window.location.href ="/account"
+                    }
+                    let circle = document.querySelector(".circle")
+                    circle.style.display = "flex"
+                    circle.style.backgroundColor = getRandomColor()
+                }
+            })
+        modal.style.display = "none";
+    }
+    loginBtn.onclick = () => {
+        modal.style.display = "block";
+    };
 
+    closeBtn.onclick = () => {
+        modal.style.display = "none";
+    };
+
+    window.onclick = (e) => {
+        if (e.target === modal) {
+            modal.style.display = "none";
+        }
+    };
     headerRight.appendChild(searchBtn);
     headerRight.appendChild(loginBtn);
+    headerRight.append(avatar);
     headCn.append(headerRight)
 }
 
@@ -95,3 +151,9 @@ searchTypes.forEach((type, i) => {
         changeType(type.id)
     }
 })
+function getRandomColor() {
+    const r = Math.floor(Math.random() * 256);
+    const g = Math.floor(Math.random() * 256);
+    const b = Math.floor(Math.random() * 256);
+    return `rgb(${r}, ${g}, ${b})`;
+}

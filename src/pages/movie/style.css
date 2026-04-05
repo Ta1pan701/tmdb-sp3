@@ -33,7 +33,7 @@
 
     position: absolute;
     background-image: linear-gradient(to bottom, rgba(30, 37, 56, 0.45) 0, #1e2538 75%);
-    z-index: 15;
+    z-index: 1;
     left: 0;
     top: 0;
 }
@@ -83,14 +83,17 @@
     height: 45px;
     border-radius: 10px;
     border: none;
-    background: #1d2a44;
     color: #fff;
     cursor: pointer;
     transition: 0.3s;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .diagram-btns:hover {
-    background: #2d3f64;
+    /* background: #2d3f64; */
+    
 }
 
 /* описание */
@@ -281,12 +284,15 @@ span {
 
     max-width: 1430px;
     margin: 0 auto;
+    z-index: 1000;
+    position: relative;
 }
 
 .acthors-box {
     max-width: 1430px;
     margin: 0 auto;
     margin-top: 150px;
+    z-index: 1000;
 }
 
 .act-title {
@@ -297,6 +303,8 @@ span {
 .new-trailers {
     margin-top: 80px;
     margin-bottom: 80px;
+    position: relative;
+    z-index: 1000;
 
     .new-tariler-up-box {
         display: flex;
