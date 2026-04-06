@@ -87,6 +87,7 @@ export function header() {
         console.log(userName);
         api.get("authentication/guest_session/new")
             .then(res => {
+                
                 let sessionId = sessionStorage.getItem("session_id")
                 sessionStorage.setItem("session_id", res.data.guest_session_id)
                 if (sessionId) {
