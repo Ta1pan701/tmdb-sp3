@@ -17,6 +17,9 @@ export function Acthors(item) {
     card.appendChild(img);
     card.appendChild(title);
     card.appendChild(subtitle);
-
+    card.onclick = () => {
+        localStorage.setItem("personId", item.id)
+        window.location.href ="/acthor"
+    }
     return card
 }

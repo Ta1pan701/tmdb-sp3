@@ -472,3 +472,26 @@ span {
     color: #f2f200;
     text-decoration: none;
 }
+.diagram-rating {
+    position: relative;
+    width: 56px;
+    height: 56px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.diagram-rating svg {
+    position: absolute;
+    top: 0; left: 0;
+}
+
+.diagram-rating-val {
+    position: relative;
+    z-index: 1;
+    font-size: 15px;
+    font-weight: 800;
+    color: #fff;
+    line-height: 1;
+}

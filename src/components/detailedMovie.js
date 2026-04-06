@@ -48,6 +48,27 @@ export function DetailedMovie(item) {
         like: "https://avatars.mds.yandex.net/i?id=12686088810cb0a84e3b1b7392706cc3dd14dd0b-5339933-images-thumbs&n=13",
         favorite: "https://img.freepik.com/premium-vector/favorites-icon-white-background-bookmark-linear-style_166116-6044.jpg?w=360",
     }
+    const rating = item.vote_average ? item.vote_average.toFixed(1) : "—"
+    const ratingVal = parseFloat(rating) || 0
+    const radius = 22
+    const circumference = 2 * Math.PI * radius
+    const offset = circumference - (ratingVal / 10) * circumference
+    let ratingColor = "#e74c3c"
+    if (ratingVal >= 7) ratingColor = "#2ecc71"
+    else if (ratingVal >= 5) ratingColor = "#f0c040"
+
+    const ratingBtn = document.createElement("div")
+    ratingBtn.className = "diagram-rating"
+    ratingBtn.innerHTML = `
+        <svg width="56" height="56" viewBox="0 0 56 56">
+            <circle cx="28" cy="28" r="${radius}" fill="#1d2a44" stroke="#2b3d5c" stroke-width="4"/>
+            <circle cx="28" cy="28" r="${radius}" fill="none" stroke="${ratingColor}" stroke-width="4"
+                stroke-dasharray="${circumference}" stroke-dashoffset="${offset}"
+                stroke-linecap="round" transform="rotate(-90 28 28)"/>
+        </svg>
+        <span class="diagram-rating-val">${rating}</span>
+    `
+    diagrams.append(ratingBtn)
     let values = Object.values(btnSrc)
     for (let i = 0; i < 3; i++) {
         const btn = document.createElement("button");
@@ -130,7 +151,6 @@ export function DetailedMovie(item) {
     right.appendChild(diagrams);
     right.appendChild(description);
     right.appendChild(trailerBtn);
-
     /* append all */
     parentBox.appendChild(left);
     parentBox.appendChild(right);
